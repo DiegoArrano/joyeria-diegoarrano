@@ -18,6 +18,7 @@ header {
     padding:20px;
     margin-top:20px;
     font-family: 'Nunito', sans-serif;
+   
 }
 
 .menu_principal:hover {
@@ -27,12 +28,14 @@ header {
 .desplegable {
     position: relative;
     display: inline-block;
+   
 }
 
 .desplegable_menores {
     display: none;
     background-color: none;
     min-width: 200px;
+    
 }
 
 .desplegable_menores a {
@@ -45,11 +48,13 @@ header {
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
+    
 }
 
 .desplegable:hover .desplegable_menores {
     display: inline;
 }
+
 
  
 #fotoPortada{
@@ -69,7 +74,13 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 1em;
-  
+     
+}
+
+.fotosGaleria:hover {
+    width: 400px;
+    height: 450px;
+    
 }
 
 #fotoMaker{
