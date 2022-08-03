@@ -1,23 +1,38 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import "./variables";
+
+$colores: (
+  azul: #0400ff,
+  negro: #000000,
+  blanco: white,
+);
+
+@mixin imagen {
+    display: block;
+    margin: 0px auto;
+    grid-area: imagen;
 }
 
+@mixin imagen2{
+    grid-template-columns: 3px, 2px;
+    grid-template-rows: 3px, 2px;
+    max-width: 1200px;
+    margin: auto;
+}
 
-header {
-    border: none;
- 
+@mixin informacion{
+grid-template-rows: 100px 500px 500px;
+grid-column-gap: 5px;
+grid-row-gap: 5px;
 }
 
 .menu_principal {
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: map-get($colores, negro);
+    color: map-get($colores, blanco);
     border: none;
     cursor: pointer;
     padding:20px;
     margin-top:20px;
-    font-family: 'Nunito', sans-serif;
+    font-family: $menuprincipal;
    
 }
 
@@ -45,8 +60,8 @@ header {
     display: block;
     list-style-type: circle;
     font-style: oblique;
-    color: #000;
-    font-family: Arial, Helvetica, sans-serif;
+    color:map-get($colores, negro);
+    font-family: $texto;
     font-size: large;
     
 }
@@ -60,9 +75,7 @@ header {
 #fotoPortada{
     width: 400px;
     height: 500px;
-    display: block;
-    margin: 0px auto;
-    grid-area: imagen;
+    @include imagen;
 }
 
 .fotosGaleria{
@@ -81,56 +94,50 @@ header {
     width: 400px;
     height: 450px;
     
-}
+};
 
 #fotoMaker{
     width: 500px;
     height: 400px;
-    display: block;
-    margin: 0px auto;
-    grid-area: imagen;
+    @include imagen;
 }
 
 #fotoAcerca{
     width: 535px;
     height: 292px;
-    display: block;
-    margin: 0px auto;
-    grid-area: imagen;
+    @include imagen;
 }
    
 h3{
-    font-family: 'Inter', sans-serif;
+    font-family: $h3;
     text-align: center;
 }
 
 
    p{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $texto;
     font-style: normal;
     font-size: small;
-    color: rgb(0, 0, 0);
+    color:map-get($colores, negro);
     text-align: justify;
     font-size: 20px;
     padding: 10px 50px 20px;
     background-color: none;
 }
 
- footer p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-size: small;
-    color: darkblue;
+ footer{ 
+    p{
+    @extend p;
+    color:map-get($colores, azul);
     text-align: center;
     font-size: 15px;
     border: none; 
-    background-color: rgb(255, 255, 255);
+    background-color: map-get($colores, blanco);
+}
 }
 
  .footer{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-size: small;
+    @extend p;
     color: None;
     text-align: center;
     font-size: 15px;
@@ -143,10 +150,7 @@ h3{
             "titulo . ."
             "imagen . texto"
     ;
-    grid-template-columns: 3px, 2px;
-    grid-template-rows: 3px, 2px;
-    max-width: 1200px;
-    margin: auto;
+    @include imagen2;
  }
 
  .informacion_titulo{
@@ -163,10 +167,7 @@ h3{
             "titulo . ."
             "texto . imagen"
     ;
-    grid-template-columns: 3px, 2px;
-    grid-template-rows: 3px, 2px;
-    max-width: 1200px;
-    margin: auto;
+    @include imagen2;
  }
 
  .informacion_titulo_maker{
@@ -186,10 +187,7 @@ h3{
             ". imagen3 ."
             "imagen4 . imagen5"
     ;
-    grid-template-columns: 3px, 2px;
-    grid-template-rows: 3px, 2px;
-    max-width: 1200px;
-    margin: auto;
+    @include imagen2;
  }
 
  .titulo_galeria{
@@ -240,9 +238,7 @@ h3{
             " texto"
             " imagen"
             ;
-        grid-template-rows: 100px 500px 500px;
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
+        @include informacion;
     }
 }
 
@@ -254,9 +250,6 @@ h3{
             " imagen"
             " texto"
            ;
-        grid-template-rows: 100px 500px 500px;
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
+           @include informacion;
     }
 }
-
